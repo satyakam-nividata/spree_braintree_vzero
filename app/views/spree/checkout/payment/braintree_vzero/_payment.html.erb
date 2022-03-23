@@ -91,13 +91,3 @@
 <% elsif dropin %>
   <script src='https://js.braintreegateway.com/web/dropin/1.20.4/js/dropin.min.js'></script>
 <% end %>
-
-<% if payment_method.try(:preferred_3dsecure) == "true" %>
-  <%= render partial: 'spree/checkout/payment/braintree_vzero/three_d_secure',
-             locals: { payment_method: payment_method, hosted: hosted, dropin: dropin }
-  %>
-<% else %>
-  <%= render partial: 'spree/checkout/payment/braintree_vzero/non_three_d_secure',
-             locals: { payment_method: payment_method, hosted: hosted, dropin: dropin }
-  %>
-<% end %>
